@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_definition">
+    <sys_ws_definition action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <base_uri>/api/x_1226914_safety_0/safety_api</base_uri>
+        <consumes>application/json</consumes>
+        <consumes_customized>true</consumes_customized>
+        <default_version>No active default version</default_version>
+        <doc_link>https://dev241536.service-now.com/x_1226914_safety_0_safety_api_documentation.do</doc_link>
+        <enforce_acl>cf9d01d3e73003009d6247e603f6a990</enforce_acl>
+        <is_versioned>false</is_versioned>
+        <name>Safety API</name>
+        <namespace>x_1226914_safety_0</namespace>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <service_id>safety_api</service_id>
+        <short_description>Provides access to the Safety application record data.</short_description>
+        <sys_class_name>sys_ws_definition</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-08-22 13:53:00</sys_created_on>
+        <sys_id>b73f17ab83c0d650b683f696feaad3cd</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Safety API</sys_name>
+        <sys_package display_value="Safety Demo" source="x_1226914_safety_0">e283feb283cc5610b683f696feaad3e0</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Safety Demo">e283feb283cc5610b683f696feaad3e0</sys_scope>
+        <sys_update_name>sys_ws_definition_b73f17ab83c0d650b683f696feaad3cd</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-08-22 13:56:29</sys_updated_on>
+    </sys_ws_definition>
+</record_update>

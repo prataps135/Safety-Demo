@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="gsw_status_of_content">
+    <gsw_status_of_content action="INSERT_OR_UPDATE">
+        <best_practice_allowed_ever>0</best_practice_allowed_ever>
+        <checksum/>
+        <content display_value="Review and set up tooling">1a3755680f382010310be3d1df767ef5</content>
+        <effective_weight>1</effective_weight>
+        <more_info_visited>false</more_info_visited>
+        <previous_status>0</previous_status>
+        <progress>0</progress>
+        <related_log_entry display_value="2024-08-22 00:11:13">8b43caaf83405650b683f696feaad396</related_log_entry>
+        <status>1</status>
+        <sys_class_name>gsw_status_of_content</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-08-22 07:10:06</sys_created_on>
+        <sys_id>3203c6af83405650b683f696feaad3ac</sys_id>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name>1</sys_name>
+        <sys_package display_value="Safety Demo" source="x_1226914_safety_0">e283feb283cc5610b683f696feaad3e0</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Safety Demo">e283feb283cc5610b683f696feaad3e0</sys_scope>
+        <sys_update_name>gsw_status_of_content_3203c6af83405650b683f696feaad3ac</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-08-22 07:11:13</sys_updated_on>
+    </gsw_status_of_content>
+</record_update>
