@@ -9,9 +9,55 @@
         <name>sa_getinfo</name>
         <operation_script><![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
 
-    // implement resource here
+	// try {
+	// implement resource here 
 
-})(request, response);]]></operation_script>
+	// Get value from the user_name path parameter passed in the URL 
+	var requestUser = request.pathParams.user_name;
+	// Get value of the sa_query query parameter passed in the URL
+	var requestSAQuery = request.queryParams.sa_query;
+
+	// Query the sys_user table to get the user record for the user passed in 
+	// the user_id path parameter.  
+	var requestUserName = new GlideRecord('sys_user'); requestUserName.get('user_name', requestUser);
+
+	// Get the count of active Safety table records where the user from the
+	// user_name path parameter is the Requested for. The encoded query is from the
+	// Query Parameter Associations. Group by category.
+	var userSACount = new GlideAggregate('x_1226914_safety_0_issues');
+	userSACount.addAggregate('COUNT');
+	userSACount.addQuery('assigned_to', requestUserName.sys_id);
+	userSACount.addEncodedQuery(requestSAQuery);
+	userSACount.groupBy('category');
+	userSACount.query();
+
+	var safetyRecs = 0;
+	var saUserRecs = [];
+	var safetyRecsCount = 0;
+
+	while (userSACount.next()) {
+		safetyRecs = userSACount.getAggregate('COUNT');
+		var reqType = userSACount.category.getDisplayValue();
+		saUserRecs.push({ "requestType": reqType, "count": safetyRecs });
+		safetyRecsCount = parseInt(safetyRecsCount) + parseInt(safetyRecs);
+	}
+
+	//Create a body object.  Add property value pairs to the body. 
+	var body = {};
+	body.totalUserSARecs = safetyRecsCount;
+	body.catCounts = saUserRecs;
+	body.user = {
+		"User name": requestUserName.user_name,
+		"User ID": requestUserName.sys_id
+	};
+
+	// Send the response object, which is returned to the requestor, to the body object. 
+	response.setBody(body);
+	// }catch(ex){
+	// 	gs.info('Exception from sa_getinfo '+ex);
+	// }
+
+})(request, response); ]]></operation_script>
         <operation_uri>/api/x_1226914_safety_0/safety_api/sagetinfo/{user_name}</operation_uri>
         <produces>application/json,application/xml,text/xml</produces>
         <produces_customized>false</produces_customized>
@@ -25,14 +71,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2024-08-22 14:07:16</sys_created_on>
         <sys_id>a2622f638344d650b683f696feaad374</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>8</sys_mod_count>
         <sys_name>sa_getinfo</sys_name>
         <sys_package display_value="Safety Demo" source="x_1226914_safety_0">e283feb283cc5610b683f696feaad3e0</sys_package>
         <sys_policy/>
         <sys_scope display_value="Safety Demo">e283feb283cc5610b683f696feaad3e0</sys_scope>
         <sys_update_name>sys_ws_operation_a2622f638344d650b683f696feaad374</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2024-08-22 14:08:59</sys_updated_on>
+        <sys_updated_on>2024-08-23 08:25:40</sys_updated_on>
         <web_service_definition display_value="Safety API">b73f17ab83c0d650b683f696feaad3cd</web_service_definition>
         <web_service_version/>
     </sys_ws_operation>
